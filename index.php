@@ -7,15 +7,17 @@
 
 		<h2> USER LOGGED IN:
 		<?php
-		if(isset($_SESSION['username']))
-			{echo $_SESSION['username'];} ?>
+		if(isset($_SESSION['username'])) {
+			echo $_SESSION['username'];
+		} ?>
 
 		<br> <br>
 	
 		USER'S PASSWORD:
 		<?php
-		if(isset($_SESSION['password'])) 
-			{echo $_SESSION['password'];} ?>
+		if(isset($_SESSION['password'])) { 
+			echo $_SESSION['password'];
+		} ?>
 		</h2>
 
 		<form action = "handleForm.php" method="POST">
