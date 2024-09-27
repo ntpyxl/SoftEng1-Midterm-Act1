@@ -7,11 +7,13 @@ if(isset($_POST['loginButton'])) {
 	$username = $_POST['username'];
 	$password = md5($_POST['password']);
 
-	if($username == $_SESSION['username']) {
-		echo "$username is already logged in! Wait for them to log out first!";
+	if(isset($_SESSION['isLoggedIn'])) {
+        $_SESSION['attemptedConcurrentLogin'] = 1;
+		header('Location: index.php');
 	} else {
 		$_SESSION['username'] = $username;
 		$_SESSION['password'] = $password;
+        $_SESSION['isLoggedIn'] = 1;
 	}
 
 	header('Location: index.php');
